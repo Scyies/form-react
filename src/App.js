@@ -1,7 +1,7 @@
 import React from "react";
-// import { Route, Routes, Link } from "react-router-dom";
 import Form from "./Form";
 import Home from "./Home";
+import { ThemeProvider, CSSReset } from '@chakra-ui/core'
 
 function App() {
   let Component
@@ -14,7 +14,10 @@ function App() {
       break
   } 
   return (<>
-  <Component/>
+  <ThemeProvider>
+    <CSSReset />
+      <Component/>
+  </ThemeProvider>
   </>)
 }
 

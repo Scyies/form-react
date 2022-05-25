@@ -1,4 +1,5 @@
 import React from "react";
+import { Stack, Button, FormControl, FormLabel, Input, InputGroup} from '@chakra-ui/core';
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -33,7 +34,7 @@ export default class Form extends React.Component {
   render() {
     return (
     <>
-      <form onSubmit={this.handleSubmit}>
+      <form method="POST" onSubmit={this.handleSubmit}>
         <fieldset>
           <legend>Form Test React</legend>
           <p>

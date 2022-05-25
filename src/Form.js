@@ -15,13 +15,14 @@ export default class Form extends React.Component {
   }
   
   handleChange(e) {
-    const target = e.target
-    const value = target.value
-    const name = target.name
+    let target = e.target
+    let value = target.value
+    let name = target.name
 
     this.setState({
       [name]: value
     })
+    console.log(value);
   }
 
   handleSubmit(e) {
@@ -32,15 +33,17 @@ export default class Form extends React.Component {
   }
 
   render() {
-    const isError = this.state.name === '' || this.state.email === '' || this.state.tel === ''
+    const isErrorName = this.state.nome === ''
+    const isErrorEmail = this.state.email === ''
+    const isErrorTel = this.state.tel === ''
     console.log(this.state.name);
 
     return (
     <>
       <form method="POST" onSubmit={this.handleSubmit}>
         <Stack maxWidth={800} margin="auto" spacing={5} marginTop={5}>
-          <legend>Form Test React</legend>
-          <FormControl isInvalid={isError}>
+          <FormLabel as='legend' fontSize={32}>Form Test React</FormLabel>
+          <FormControl isInvalid={isErrorName}>
             <FormLabel htmlFor="nome">Nome: </FormLabel>
             <Input 
               isRequired 
@@ -52,7 +55,7 @@ export default class Form extends React.Component {
               placeholder="ex: Fulano da Silva"
               size="md"
                />
-              {!isError ? (
+              {!isErrorName ? (
                 <FormHelperText>
                   Insira o seu nome.
                 </FormHelperText>
@@ -62,7 +65,7 @@ export default class Form extends React.Component {
                 </FormErrorMessage>
               )}
           </FormControl>
-          <FormControl isInvalid={isError}>
+          <FormControl isInvalid={isErrorEmail}>
             <FormLabel htmlFor="email">E-mail: </FormLabel>
               <Input 
                 name="email"
@@ -74,7 +77,7 @@ export default class Form extends React.Component {
                 placeholder="ex: fulano93@gmail.com" 
                 isRequired 
                 />
-              {!isError ? (
+              {!isErrorEmail ? (
                 <FormHelperText>
                   Insira o seu e-mail.
                 </FormHelperText>
@@ -82,7 +85,7 @@ export default class Form extends React.Component {
                 <FormErrorMessage>É necessário informar um e-mail válido.</FormErrorMessage>
               )}
           </FormControl>
-          <FormControl isInvalid={isError}>
+          <FormControl isInvalid={isErrorTel}>
             <FormLabel hrmlFor="tel">Telefone: </FormLabel>
             <Input 
               name="tel"
@@ -93,7 +96,7 @@ export default class Form extends React.Component {
               placeholder="ex: (00) 9 0000-0000" 
               isRequired 
               />
-            {!isError ? (
+            {!isErrorTel ? (
                 <FormHelperText>
                   Insira o seu telefone.
                 </FormHelperText>
@@ -106,7 +109,7 @@ export default class Form extends React.Component {
             variantColor="red"
             type="submit" 
             value="Enviar" 
-            disabled={isError}>
+            >
               Enviar
             </Button>
           </FormControl>

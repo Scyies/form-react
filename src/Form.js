@@ -1,5 +1,5 @@
 import React from "react";
-import { Stack, Button, FormControl, FormLabel, Input, InputGroup, FormHelperText, FormErrorMessage} from '@chakra-ui/core';
+import { Stack, Button, FormControl, FormLabel, Input, FormHelperText, FormErrorMessage} from '@chakra-ui/core';
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -14,6 +14,10 @@ export default class Form extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
   
+  persistInputs() {
+    localStorage.setItem(this.state)
+  }
+
   handleChange(e) {
     let target = e.target
     let value = target.value
@@ -25,9 +29,9 @@ export default class Form extends React.Component {
   }
 
   handleSubmit(e) {
-    // alert('Obrigado ' + this.target.nome + 'seu formulário foi enviado com sucesso!')
+    alert('Obrigado '+ this.state.nome + ', seu formulário foi enviado com sucesso!')
     console.log(this.state)
-    // window.location.href="/"
+    window.location.href="/"
     e.preventDefault()
   }
 
@@ -38,7 +42,7 @@ export default class Form extends React.Component {
 
     return (
     <>
-      <form method="POST" onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <Stack maxWidth={800} margin="auto" spacing={5} marginTop={5}>
           <FormLabel as='legend' fontSize={32}>Form Test React</FormLabel>
           <FormControl isInvalid={isErrorName}>

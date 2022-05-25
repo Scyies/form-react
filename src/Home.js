@@ -1,31 +1,31 @@
-import { Box, Text } from "@chakra-ui/core"
+import { Box, Text, Flex, Link } from "@chakra-ui/core"
 
 export default function Home() {
   return (
-    <nav>
-      <Box 
-        border="1px"
-        rounded="10px"
-        borderColor="gray.300"
-        boxShadow="md"
-        color="black"
-        bg="lavender" 
-        w="400px" 
-        h="400px"
+      <Flex 
+        bg="#464646"
+        w="100%"
+        h="100%"
         fontSize="2rem"
         textAlign="center"
-        fontFamily="Consolas" 
+        fontFamily="Consolas"
+        justifyContent="space-around"
       >
-        <a href="/">React Form Home</a>
-        <ul>
-          <Text
-            textDecoration="none"
-          >
-            <a href="/form">Form</a>
-          </Text>
-        </ul>
-      </Box>
-      
-    </nav>
+        <Text color="white">
+          <Link href="/"
+          _hover={{ color: "black" }}>
+            React Form
+          </Link>
+        </Text>
+        <Text
+          textDecoration="none"
+          color="white"
+        >
+          <Link href="/form"
+          _hover={{ color: "black" }}>
+            Form
+          </Link>
+        </Text>
+      </Flex>
   )
 }

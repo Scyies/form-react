@@ -22,11 +22,10 @@ export default class Form extends React.Component {
     this.setState({
       [name]: value
     })
-    console.log(value);
   }
 
   handleSubmit(e) {
-    // alert('Obrigado ' + this.target.name + 'seu formulário foi enviado com sucesso!')
+    // alert('Obrigado ' + this.target.nome + 'seu formulário foi enviado com sucesso!')
     console.log(this.state)
     // window.location.href="/"
     e.preventDefault()
@@ -36,7 +35,6 @@ export default class Form extends React.Component {
     const isErrorName = this.state.nome === ''
     const isErrorEmail = this.state.email === ''
     const isErrorTel = this.state.tel === ''
-    console.log(this.state.name);
 
     return (
     <>

@@ -1,4 +1,6 @@
 import React from "react";
+import { Route, Routes, Link } from "react-router-dom";
+import Home from "./Home";
 
 class App extends React.Component {
   constructor(props) {
@@ -50,7 +52,12 @@ class App extends React.Component {
               <input name="tel" type="tel" value={this.state.tel} onChange={this.handleChange} placeholder="ex: (00) 9 0000-0000" required />
             </label>
           </p>
-          <input type="submit" value="Enviar" />
+          <Link to="/home">
+            <input type="submit" value="Enviar" />
+          </Link>
+          <Routes>
+            <Route path="/home" element={<Home />} />
+          </Routes>
         </fieldset>
       </form>
     </>

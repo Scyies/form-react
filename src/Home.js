@@ -1,3 +1,10 @@
 export default function Home() {
-  return <h1>Obrigado por completar o formulário</h1>
+  return (
+    <nav>
+      <a href="/">React Form Home</a>
+      <ul>
+        <li><a href="/form">Form</a></li>
+      </ul>
+    </nav>
+  )
 }

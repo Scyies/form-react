@@ -1,25 +1,61 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      nome: '',
+      email: '',
+      tel: ''
+    }
+
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+  
+  handleChange(e) {
+    const target = e.target
+    const value = target.value
+    const name = target.name
+
+    this.setState({
+      [name]: value
+    })
+  }
+
+  handleSubmit(e) {
+    // alert('Obrigado ' + this.target.name + 'seu formulário foi enviado com sucesso!')
+    console.log(this.state)
+    e.preventDefault()
+  }
+
+  render() {
+    return (
+    <>
+      <form onSubmit={this.handleSubmit}>
+        <fieldset>
+          <legend>Form Test React</legend>
+          <p>
+            <label>Nome:
+              <input name="nome" type="text" value={this.state.nome} onChange={this.handleChange} placeholder="ex: Fulano da Silva" required />
+            </label>
+          </p>
+          <p>
+            <label>E-mail:
+              <input name="email" type="email" value={this.state.email} onChange={this.handleChange} placeholder="ex: fulano93@gmail.com" required />
+            </label>
+          </p>
+          <p>
+            <label>Telefone:
+              <input name="tel" type="tel" value={this.state.tel} onChange={this.handleChange} placeholder="ex: (00) 9 0000-0000" required />
+            </label>
+          </p>
+          <input type="submit" value="Enviar" />
+        </fieldset>
+      </form>
+    </>
+    );
+  }
 }
 
 export default App;

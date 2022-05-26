@@ -1,6 +1,7 @@
 import React from "react";
 import Form from "./Form";
 import Home from "./Home";
+import FormF from "./FormF";
 import { ThemeProvider, CSSReset } from '@chakra-ui/core'
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
       Component = Home
       break
     case "/form":
-      Component = Form
+      Component = FormF
       break
   } 
   return (<>

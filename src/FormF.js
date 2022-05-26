@@ -1,59 +1,68 @@
-import React from "react";
+import React, { useEffect, useState } from 'react'
 import { Stack, Button, FormControl, FormLabel, Input, FormHelperText, FormErrorMessage} from '@chakra-ui/core';
 
-export default class Form extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      nome: '',
-      email: '',
-      tel: ''
-    }
+const initialInput = {
+  nome: '',
+  email: '',
+  tel: ''
+};
 
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
+const LOCAL_STORAGE_KEY = 'inputStore.FormF'
 
-  handleChange(e) {
-    let target = e.target
-    let value = target.value
-    let name = target.name
+export default function FormF() {
+  const [inputs, setInputs] = useState([initialInput]);
 
-    this.setState({
-      [name]: value
-    })
-  }
+  useEffect(() => {
+    const storedInputs = (localStorage.getItem(LOCAL_STORAGE_KEY))
+    if (storedInputs) setInputs(storedInputs);
+  }, []);
 
-  handleSubmit(e) {
-    alert('Obrigado '+ this.state.nome + ', seu formulário foi enviado com sucesso!')
-    console.log(this.state)
-    window.location.href="/"
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify)
+  }, [inputs]);
+
+  const handleInputChange = (e) => {
+    // const { name, input } = e.target;
+    let target = e.target;
+    let input = target.value;
+    let name = target.name;
+
+    setInputs({
+      ...inputs,
+      [name]: input
+    });
+  };
+
+  const handleSubmit = (e) => {
+    alert('Obrigado '+ inputs.nome + ', seu formulário foi enviado com sucesso!')
+    console.log(inputs)
+    // window.location.href="/"
     e.preventDefault()
   }
 
-  render() {
-    const isErrorName = this.state.nome === ''
-    const isErrorEmail = this.state.email === ''
-    const isErrorTel = this.state.tel === ''
+  const isErrorNome = inputs.nome === '';
+  const isErrorEmail = inputs.email === '';
+  const isErrorTel = inputs.tel === '';
+  console.log(inputs.nome);
 
-    return (
+  return (
     <>
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <Stack maxWidth={800} margin="auto" spacing={5} marginTop={5}>
           <FormLabel as='legend' fontSize={32}>Form Test React</FormLabel>
-          <FormControl isInvalid={isErrorName}>
+          <FormControl isInvalid={isErrorNome}>
             <FormLabel htmlFor="nome">Nome: </FormLabel>
             <Input 
               isRequired 
               id="nome" 
               name="nome" 
               type="text" 
-              value={this.state.nome} 
-              onChange={this.handleChange} 
+              value={inputs.nome} 
+              onChange={handleInputChange} 
               placeholder="ex: Fulano da Silva"
               size="md"
                />
-              {!isErrorName ? (
+              {!isErrorNome ? (
                 <FormHelperText>
                   Insira o seu nome.
                 </FormHelperText>
@@ -69,9 +78,9 @@ export default class Form extends React.Component {
                 name="email"
                 id="email"
                 type="email" 
-                value={this.state.email} 
+                value={inputs.email} 
                 aria-describedby="email-helper-text"
-                onChange={this.handleChange} 
+                onChange={handleInputChange} 
                 placeholder="ex: fulano93@gmail.com" 
                 isRequired 
                 />
@@ -89,8 +98,8 @@ export default class Form extends React.Component {
               name="tel"
               id="tel" 
               type="tel" 
-              value={this.state.tel} 
-              onChange={this.handleChange} 
+              value={inputs.tel} 
+              onChange={handleInputChange} 
               placeholder="ex: (00) 9 0000-0000" 
               isRequired 
               />
@@ -114,6 +123,5 @@ export default class Form extends React.Component {
         </Stack>
       </form>
     </>
-    );
-  }
+  )
 }

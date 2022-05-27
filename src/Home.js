@@ -25,7 +25,7 @@ export default function Home() {
         fontFamily="Consolas"
         fontSize="1.5rem"
         w="100%"
-        h="110%"
+        h="88.1vh"
       >
         <Text
           textDecoration="none"

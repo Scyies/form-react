@@ -27,7 +27,7 @@ export default class Form2 extends React.Component {
   handleSubmit(e) {
     alert('Obrigado '+ this.state.nome + ', seu formulário foi enviado com sucesso!')
     console.log(this.state)
-    window.location.href="/"
+    window.location.href="/react-form/"
     e.preventDefault()
   }
 

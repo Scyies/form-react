@@ -13,11 +13,9 @@ export default function Home() {
         fontFamily="Consolas"
         justifyContent="center"
       >
-        <Text color="#A7C4BC" p="1rem">
-          <Link to="/"
-          _hover={{ color: "#DFEEEA" }}>
+        <Text color="#A7C4BC" p="1rem"
+        _hover={{ color: "#DFEEEA" }}>
             React Form
-          </Link>
         </Text>
       </Flex>
       <Flex

@@ -14,7 +14,7 @@ function App() {
     case "/react-form/form1/":
       Component = Form1
       break
-    case "/form2":
+    case "/react-form/form2/":
       Component = Form2
       break
   } 

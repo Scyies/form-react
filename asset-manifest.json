@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/react-form/static/js/main.39ae1bb0.js",
-    "index.html": "/react-form/index.html",
-    "main.39ae1bb0.js.map": "/react-form/static/js/main.39ae1bb0.js.map"
+    "main.js": "/form-react/static/js/main.39ae1bb0.js",
+    "index.html": "/form-react/index.html",
+    "main.39ae1bb0.js.map": "/form-react/static/js/main.39ae1bb0.js.map"
   },
   "entrypoints": [
     "static/js/main.39ae1bb0.js"

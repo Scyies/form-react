@@ -1,9 +1,12 @@
-import { Text, Flex, Link } from "@chakra-ui/core"
+import { Text, Flex } from "@chakra-ui/core"
 import React from "react";
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import Form1 from "./Form1";
+import Form2 from "./Form2";
 
 export default function Home() {
   return (
-    <>
+    <BrowserRouter>
       <Flex 
         bg="#2F5D62"
         w="100%"
@@ -13,7 +16,7 @@ export default function Home() {
         justifyContent="center"
       >
         <Text color="#A7C4BC" p="1rem">
-          <Link href="/react-form/"
+          <Link to="#"
           _hover={{ color: "#DFEEEA" }}>
             React Form
           </Link>
@@ -35,7 +38,7 @@ export default function Home() {
           borderBottom="3px solid #DFEEEA"
           _hover={{ fontSize: "2.rem" }}
         >
-          <Link href="/react-form/form1/"
+          <Link to="/form1/"
           
           p=".25rem">
             Form salvo em local storage
@@ -49,13 +52,18 @@ export default function Home() {
           marginBottom="1rem"
           _hover={{ fontSize: "2.rem" }}
         >
-          <Link href="/react-form/form2/"
+          <Link to="/form2/"
           p=".25rem"
           >
           Form feito com state
         </Link>
         </Text>
       </Flex>
-    </>
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="/form1/" element={<Form1 />} />
+        <Route path="/form2/" element={<Form2 />} />
+      </Routes>
+    </BrowserRouter>
   )
 }

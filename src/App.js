@@ -13,7 +13,7 @@ function App() {
     <CSSReset />
       {/* <Home /> */}
       <Routes>
-        <Route index element={<Home />} />
+        <Route path="/form-react/" element={<Home />} />
         <Route path="/form-react/form1/" element={<Form1 />} />
         <Route path="/form-react/form2/" element={<Form2 />} />
       </Routes>

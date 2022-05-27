@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Stack, Button, FormControl, FormLabel, Input, FormHelperText, FormErrorMessage, Box} from '@chakra-ui/core';
+import Home from './Home';
 
 const LOCAL_STORAGE_KEY = 'inputStore.FormF'
 
@@ -28,7 +29,7 @@ export default function Form1() {
 
   const handleSubmit = (e) => {
     alert('Obrigado '+ inputs.nome + ', seu formulário foi enviado com sucesso!')
-    window.location.href="/form-react/"
+    window.location.href=<Home />
     localStorage.clear()
     e.preventDefault()
   }

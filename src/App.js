@@ -11,7 +11,7 @@ function App() {
     default:
       Component = Home
       break
-    case "/form1":
+    case "/react-form/form1/":
       Component = Form1
       break
     case "/form2":

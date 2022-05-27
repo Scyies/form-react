@@ -6,7 +6,7 @@ import Form2 from "./Form2";
 
 export default function Home() {
   return (
-    <BrowserRouter>
+    <>
       <Flex 
         bg="#2F5D62"
         w="100%"
@@ -59,11 +59,8 @@ export default function Home() {
         </Link>
         </Text>
       </Flex>
-      <Routes>
-        <Route index element={<Home />} />
-        <Route path="/form1/" element={<Form1 />} />
-        <Route path="/form2/" element={<Form2 />} />
-      </Routes>
-    </BrowserRouter>
+    
+        
+    </>
   )
 }

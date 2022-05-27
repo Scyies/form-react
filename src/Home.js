@@ -13,7 +13,7 @@ export default function Home() {
         justifyContent="center"
       >
         <Text color="#A7C4BC" p="1rem">
-          <Link href="/"
+          <Link href="/react-form/"
           _hover={{ color: "#DFEEEA" }}>
             React Form
           </Link>
@@ -35,7 +35,7 @@ export default function Home() {
           borderBottom="3px solid #DFEEEA"
           _hover={{ fontSize: "2.rem" }}
         >
-          <Link href="/form1"
+          <Link href="/react-form/form1/"
           
           p=".25rem">
             Form salvo em local storage
@@ -49,7 +49,7 @@ export default function Home() {
           marginBottom="1rem"
           _hover={{ fontSize: "2.rem" }}
         >
-          <Link href="/form2"
+          <Link href="/react-form/form2/"
           p=".25rem"
           >
           Form feito com state

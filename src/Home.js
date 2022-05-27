@@ -34,7 +34,7 @@ export default function Home() {
           borderBottom="3px solid #DFEEEA"
           _hover={{ fontSize: "2.rem" }}
         >
-          <Link to="/form1/"
+          <Link to="/form-react/form1/"
           
           p=".25rem">
             Form salvo em local storage
@@ -48,7 +48,7 @@ export default function Home() {
           marginBottom="1rem"
           _hover={{ fontSize: "2.rem" }}
         >
-          <Link to="/form2/"
+          <Link to="/form-react/form2/"
           p=".25rem"
           >
           Form feito com state

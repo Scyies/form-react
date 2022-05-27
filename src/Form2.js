@@ -1,7 +1,7 @@
 import React from "react";
-import { Stack, Button, FormControl, FormLabel, Input, FormHelperText, FormErrorMessage} from '@chakra-ui/core';
+import { Stack, Button, FormControl, FormLabel, Input, FormHelperText, FormErrorMessage, Box} from '@chakra-ui/core';
 
-export default class Form extends React.Component {
+export default class Form2 extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -35,26 +35,28 @@ export default class Form extends React.Component {
     const isErrorName = this.state.nome === ''
     const isErrorEmail = this.state.email === ''
     const isErrorTel = this.state.tel === ''
-
+    
     return (
-    <>
+    <Box
+      h="100vh"
+      backgroundColor="#2F5D62">
       <form onSubmit={this.handleSubmit}>
-        <Stack maxWidth={800} margin="auto" spacing={5} marginTop={5}>
-          <FormLabel as='legend' fontSize={32}>Form Test React</FormLabel>
+        <Stack maxWidth={800} margin="auto" spacing={5} paddingTop={5}>
+          <FormLabel as='legend' fontSize={32} color="#A7C4BC">Form Test React</FormLabel>
           <FormControl isInvalid={isErrorName}>
-            <FormLabel htmlFor="nome">Nome: </FormLabel>
+            <FormLabel htmlFor="nome" color="#A7C4BC">Nome: </FormLabel>
             <Input 
               isRequired 
               id="nome" 
               name="nome" 
               type="text" 
-              value={this.state.nome} 
+              value={this.state.name} 
               onChange={this.handleChange} 
               placeholder="ex: Fulano da Silva"
               size="md"
                />
               {!isErrorName ? (
-                <FormHelperText>
+                <FormHelperText color="#A7C4BC">
                   Insira o seu nome.
                 </FormHelperText>
               ) : (
@@ -64,7 +66,7 @@ export default class Form extends React.Component {
               )}
           </FormControl>
           <FormControl isInvalid={isErrorEmail}>
-            <FormLabel htmlFor="email">E-mail: </FormLabel>
+            <FormLabel htmlFor="email" color="#A7C4BC">E-mail: </FormLabel>
               <Input 
                 name="email"
                 id="email"
@@ -76,7 +78,7 @@ export default class Form extends React.Component {
                 isRequired 
                 />
               {!isErrorEmail ? (
-                <FormHelperText>
+                <FormHelperText color="#A7C4BC">
                   Insira o seu e-mail.
                 </FormHelperText>
               ) : (
@@ -84,7 +86,7 @@ export default class Form extends React.Component {
               )}
           </FormControl>
           <FormControl isInvalid={isErrorTel}>
-            <FormLabel hrmlFor="tel">Telefone: </FormLabel>
+            <FormLabel hrmlFor="tel" color="#A7C4BC">Telefone: </FormLabel>
             <Input 
               name="tel"
               id="tel" 
@@ -95,7 +97,7 @@ export default class Form extends React.Component {
               isRequired 
               />
             {!isErrorTel ? (
-                <FormHelperText>
+                <FormHelperText color="#A7C4BC">
                   Insira o seu telefone.
                 </FormHelperText>
               ) : (
@@ -104,16 +106,16 @@ export default class Form extends React.Component {
           </FormControl>
           <FormControl>
             <Button 
-            variantColor="red"
             type="submit" 
-            value="Enviar" 
+            value="Enviar"
+            color="#2F5D62"
             >
               Enviar
             </Button>
           </FormControl>
         </Stack>
       </form>
-    </>
+    </Box>
     );
   }
 }

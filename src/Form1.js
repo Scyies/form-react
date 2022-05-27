@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Stack, Button, FormControl, FormLabel, Input, FormHelperText, FormErrorMessage, Box} from '@chakra-ui/core';
 import Home from './Home';
+import { useNavigate } from 'react-router-dom';
 
 const LOCAL_STORAGE_KEY = 'inputStore.FormF'
 
@@ -27,12 +28,21 @@ export default function Form1() {
     });
   };
 
+  // const navigate = useNavigate();
+  // const navigateHome = () => {
+  //   navigate(Home)
+  // }
+  
   const handleSubmit = (e) => {
     alert('Obrigado '+ inputs.nome + ', seu formulário foi enviado com sucesso!')
-    window.location.href=<Home />
+    window.location.href='/'
+    // navigateHome()
     localStorage.clear()
     e.preventDefault()
   }
+
+
+  
 
   const isErrorNome = inputs.nome === '';
   const isErrorEmail = inputs.email === '';

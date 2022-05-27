@@ -14,7 +14,7 @@ export default function Home() {
         justifyContent="center"
       >
         <Text color="#A7C4BC" p="1rem">
-          <Link to="#"
+          <Link to="/"
           _hover={{ color: "#DFEEEA" }}>
             React Form
           </Link>

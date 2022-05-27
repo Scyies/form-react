@@ -28,7 +28,7 @@ export default function Form1() {
 
   const handleSubmit = (e) => {
     alert('Obrigado '+ inputs.nome + ', seu formulário foi enviado com sucesso!')
-    window.location.href="/react-form/"
+    window.location.href="/form-react/"
     localStorage.clear()
     e.preventDefault()
   }

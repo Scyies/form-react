@@ -14,8 +14,8 @@ function App() {
       <Home />
       <Routes>
         <Route index element={<Home />} />
-        <Route path="/form-react/form1/" element={<Form1 />} />
-        <Route path="/form-react/form2/" element={<Form2 />} />
+        <Route path="/form1/" element={<Form1 />} />
+        <Route path="/form2/" element={<Form2 />} />
       </Routes>
   </ThemeProvider>
   </>)

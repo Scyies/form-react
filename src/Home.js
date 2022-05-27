@@ -1,8 +1,6 @@
 import { Text, Flex } from "@chakra-ui/core"
 import React from "react";
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import Form1 from "./Form1";
-import Form2 from "./Form2";
+import { Link } from 'react-router-dom';
 
 export default function Home() {
   return (
@@ -58,9 +56,7 @@ export default function Home() {
           Form feito com state
         </Link>
         </Text>
-      </Flex>
-    
-        
+      </Flex>   
     </>
   )
 }

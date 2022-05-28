@@ -20,7 +20,10 @@ export default function History() {
     arr.push(strSplit[i]);
   }
 
-  let rederedOutput = arr.map(item => <Text color="#A7C4BC" fontSize="1rem" textAlign="center" p="1rem"> {item} </Text>)
+  let result = arr.toString().replace(/[{}""]/g, ' ')
+  let result1 = result.split("  ")
+
+  let rederedOutput = result1.map(item => <Text color="#A7C4BC" fontSize="1rem" textAlign="center" p=".25rem"> {item} </Text>)
 
   return (
     <Box
@@ -31,7 +34,7 @@ export default function History() {
         _hover={{ color: "#DFEEEA" }}
         fontSize="2rem"
         textAlign="center">
-          History
+          Histórico
         </Text>
         <Box
         h="100%"

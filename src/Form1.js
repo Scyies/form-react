@@ -7,14 +7,14 @@ const LOCAL_STORAGE_KEY = v4()
 export default function Form1() {
   const [inputs, setInputs] = useState([]);
 
-  useEffect(() => {
-    const storedInputs = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
-    if (storedInputs) setInputs(storedInputs);
-  }, []);
+  // useEffect(() => {
+  //   const storedInputs = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
+  //   if (storedInputs) setInputs(storedInputs);
+  // }, []);
 
-  useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(inputs))
-  }, [inputs]);
+  // useEffect(() => {
+  //   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(inputs))
+  // }, [inputs]);
 
   const handleInputChange = (e) => {
     let target = e.target;
@@ -32,7 +32,7 @@ export default function Form1() {
   const handleSubmit = (e) => {
     alert('Obrigado '+ inputs.nome + ', seu formulário foi enviado com sucesso!')
     window.location.href='/form-react/'
-    // localStorage.clear()
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(inputs))
     e.preventDefault()
   }
 

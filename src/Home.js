@@ -40,7 +40,7 @@ export default function Home() {
             Form salvo em local storage
           </Link>
         </Text>
-        <Text
+        {/* <Text
           textDecor="none"
           color="#A7C4BC"
           p="1rem"
@@ -52,7 +52,7 @@ export default function Home() {
           >
           Form feito com state
         </Link>
-        </Text>
+        </Text> */}
         <Text
           textDecor="none"
           color="#A7C4BC"

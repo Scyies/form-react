@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { Stack, Button, FormControl, FormLabel, Input, FormHelperText, FormErrorMessage, Box, Text} from '@chakra-ui/core'
+import React from 'react'
+import { Box, Text} from '@chakra-ui/core'
 
 export default function History() {
   
@@ -20,7 +20,7 @@ export default function History() {
     arr.push(strSplit[i]);
   }
 
-  let rederedOutput = arr.map(item => <Text color="#A7C4BC" fontSize="1rem" textAlign="center"> {item} </Text>)
+  let rederedOutput = arr.map(item => <Text color="#A7C4BC" fontSize="1rem" textAlign="center" p="1rem"> {item} </Text>)
 
   return (
     <Box
@@ -33,7 +33,10 @@ export default function History() {
         textAlign="center">
           History
         </Text>
-        <Box>
+        <Box
+        h="100%"
+        backgroundColor="#5E8B7E"
+        paddingTop="1rem">
           {rederedOutput}
         </Box>
     </Box>

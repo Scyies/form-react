@@ -12,7 +12,6 @@ function App() {
   return (<>
   <ThemeProvider>
     <CSSReset />
-      {/* <Home /> */}
       <Routes>
         <Route path="/form-react/" element={<Home />} />
         <Route path="/form-react/form1/" element={<Form1 />} />

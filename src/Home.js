@@ -45,13 +45,26 @@ export default function Home() {
           color="#A7C4BC"
           p="1rem"
           borderBottom="3px solid #DFEEEA"
-          marginBottom="1rem"
           _hover={{ fontSize: "2.rem" }}
         >
           <Link to="/form-react/form2/"
           p=".25rem"
           >
           Form feito com state
+        </Link>
+        </Text>
+        <Text
+          textDecor="none"
+          color="#A7C4BC"
+          p="1rem"
+          borderBottom="3px solid #DFEEEA"
+          marginBottom="1rem"
+          _hover={{ fontSize: "2.rem" }}
+        >
+          <Link to="/form-react/history/"
+          p=".25rem"
+          >
+          Histórico de Formulários
         </Link>
         </Text>
       </Flex>   

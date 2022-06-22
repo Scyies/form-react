@@ -8,13 +8,16 @@ export default function Home() {
       <Flex 
         bg="#2F5D62"
         w="100%"
-        h="8vh"
+        h="10vh"
         fontSize="2rem"
         fontFamily="Consolas"
         justifyContent="center"
       >
         <Text color="#A7C4BC" p="1rem"
-        _hover={{ color: "#DFEEEA" }}>
+        _hover={{ color: "#DFEEEA" }}
+        textAlign="center"
+        lineHeight="normal"
+        verticalAlign="middle">
             React Form
         </Text>
       </Flex>
@@ -25,7 +28,7 @@ export default function Home() {
         fontFamily="Consolas"
         fontSize="1.5rem"
         w="100%"
-        h="92vh"
+        h="90vh"
       >
         <Text
           textDecoration="none"

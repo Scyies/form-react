@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Box, Text} from '@chakra-ui/react'
-import { Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableContainer, TableCaption } from '@chakra-ui/react'
+import { Table, Thead, Tbody, Tr, Th, TableContainer, TableCaption } from '@chakra-ui/react'
 import TableContent from './TableContent.js'
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js"
+import { initializeApp } from "firebase/app";
 import { 
   getFirestore, collection, getDocs
-} from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-firestore.js';
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDgTuevYS1Zl8FYcSfhjc0staWOvLf8pWs",

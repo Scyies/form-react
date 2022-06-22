@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Stack, Button, FormControl, FormLabel, Input, FormHelperText, FormErrorMessage, Box} from '@chakra-ui/react'
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js"
+import { initializeApp } from "firebase/app"
 import { 
-  getFirestore, collection, getDocs,
-  addDoc, Timestamp, setDoc, doc
-} from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-firestore.js';
+  getFirestore, collection,
+  addDoc, Timestamp
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDgTuevYS1Zl8FYcSfhjc0staWOvLf8pWs",

@@ -1,29 +1,54 @@
-import React from 'react'
-import { Box, Text} from '@chakra-ui/core'
+import React, { useEffect, useState } from 'react'
+import { Box, Text} from '@chakra-ui/react'
+import { Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableContainer, TableCaption } from '@chakra-ui/react'
+import TableContent from './TableContent.js'
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js"
+import { 
+  getFirestore, collection, getDocs,
+  addDoc, Timestamp, setDoc, doc
+} from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-firestore.js';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDgTuevYS1Zl8FYcSfhjc0staWOvLf8pWs",
+  authDomain: "react-form-ea35a.firebaseapp.com",
+  databaseURL: "https://react-form-ea35a-default-rtdb.firebaseio.com",
+  projectId: "react-form-ea35a",
+  storageBucket: "react-form-ea35a.appspot.com",
+  messagingSenderId: "1011728446502",
+  appId: "1:1011728446502:web:255a2623e5ff8fb85be2e7"
+};
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore();
+
+const colRef = collection(db, 'history');
 
 export default function History() {
-  
-  const items = { ...localStorage };
 
-  let str = '';
-  for (let i in items) {
-    if (items.hasOwnProperty(i)) {
-      str = str + `${i}: ${items[i]}\n`
+  const [inputList, setInputList] = useState([]);
+
+  const getInfo = async () => {
+    try {
+      const information = [];
+
+      await getDocs(colRef).then((snapshot) => {
+        snapshot.docs.forEach((doc) => {
+          information.push({... doc.data(), id: doc.id})
+        });
+        setInputList([... information]);
+      })
+    } 
+    catch (e) {
+      alert('Error: ' + e.message);
     }
   }
-  let strSplit = str.split('\n')
 
-  let arrayLength = strSplit.length
-  let arr = [];
+  console.log(inputList);
 
-  for ( let i = 0; i < arrayLength; i++) {
-    arr.push(strSplit[i]);
-  }
-
-  let result = arr.toString().replace(/[{}""]/g, ' ')
-  let result1 = result.split("  ")
-
-  let rederedOutput = result1.map(item => <Text color="#A7C4BC" fontSize="1rem" textAlign="center" p=".25rem"> {item} </Text>)
+  useEffect(() => {
+    getInfo();
+  }, []);
 
   return (
     <Box
@@ -36,12 +61,37 @@ export default function History() {
         textAlign="center">
           Histórico
         </Text>
-        <Box
+        <TableContainer
         h="100%"
         backgroundColor="#5E8B7E"
         paddingTop="1rem">
-          {rederedOutput}
-        </Box>
+          <Table variant='simple'>
+            <TableCaption>Histórico de formulários enviados</TableCaption>
+              <Thead>
+                <Tr>
+                  <Th>Data</Th>
+                  <Th>Nome</Th>
+                  <Th>Email</Th>
+                  <Th>Telefone</Th>
+                </Tr>
+              </Thead>
+              <Tbody>
+                {
+                  inputList.map((info, index) => {
+                    return(
+                    <TableContent 
+                    key={index} 
+                    name={info.name}
+                    email={info.email}
+                    telefone={info.tel}
+                    data={info.date}
+                    />
+                    )
+                  })
+                }
+              </Tbody>
+          </Table>
+        </TableContainer>
     </Box>
   )
 }

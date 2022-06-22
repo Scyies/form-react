@@ -1,6 +1,6 @@
 import React from "react";
 import Home from "./Home";
-import { ThemeProvider, CSSReset } from '@chakra-ui/core'
+import { ChakraProvider, CSSReset } from '@chakra-ui/react'
 import { Route, Routes } from 'react-router-dom'
 import Form1 from "./Form1";
 import Form2 from "./Form2";
@@ -10,7 +10,7 @@ function App() {
 
 
   return (<>
-  <ThemeProvider>
+  <ChakraProvider>
     <CSSReset />
       <Routes>
         <Route path="/form-react/" element={<Home />} />
@@ -18,7 +18,7 @@ function App() {
         <Route path="/form-react/form2/" element={<Form2 />} />
         <Route path="/form-react/history" element={<History />} />
       </Routes>
-  </ThemeProvider>
+  </ChakraProvider>
   </>)
 }
 

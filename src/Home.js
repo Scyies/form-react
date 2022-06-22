@@ -1,4 +1,4 @@
-import { Text, Flex } from "@chakra-ui/core"
+import { Text, Flex } from "@chakra-ui/react"
 import React from "react";
 import { Link } from 'react-router-dom';
 
@@ -8,7 +8,7 @@ export default function Home() {
       <Flex 
         bg="#2F5D62"
         w="100%"
-        h="100%"
+        h="8vh"
         fontSize="2rem"
         fontFamily="Consolas"
         justifyContent="center"
@@ -25,7 +25,7 @@ export default function Home() {
         fontFamily="Consolas"
         fontSize="1.5rem"
         w="100%"
-        h="88.1vh"
+        h="92vh"
       >
         <Text
           textDecoration="none"

@@ -1,5 +1,5 @@
 import React from "react";
-import { Stack, Button, FormControl, FormLabel, Input, FormHelperText, FormErrorMessage, Box} from '@chakra-ui/core';
+import { Stack, Button, FormControl, FormLabel, Input, FormHelperText, FormErrorMessage, Box} from '@chakra-ui/react';
 
 export default class Form2 extends React.Component {
   constructor(props) {

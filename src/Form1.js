@@ -1,20 +1,29 @@
-import React, { useEffect, useState, useContext, createContext } from 'react'
-import { Stack, Button, FormControl, FormLabel, Input, FormHelperText, FormErrorMessage, Box} from '@chakra-ui/core'
-import { v4 } from 'uuid'
+import React, { useState } from 'react'
+import { Stack, Button, FormControl, FormLabel, Input, FormHelperText, FormErrorMessage, Box} from '@chakra-ui/react'
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js"
+import { 
+  getFirestore, collection, getDocs,
+  addDoc, Timestamp, setDoc, doc
+} from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-firestore.js';
 
-const LOCAL_STORAGE_KEY = v4()
+const firebaseConfig = {
+  apiKey: "AIzaSyDgTuevYS1Zl8FYcSfhjc0staWOvLf8pWs",
+  authDomain: "react-form-ea35a.firebaseapp.com",
+  databaseURL: "https://react-form-ea35a-default-rtdb.firebaseio.com",
+  projectId: "react-form-ea35a",
+  storageBucket: "react-form-ea35a.appspot.com",
+  messagingSenderId: "1011728446502",
+  appId: "1:1011728446502:web:255a2623e5ff8fb85be2e7"
+};
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore();
+
+const colRef = collection(db, 'history');
 
 export default function Form1() {
   const [inputs, setInputs] = useState([]);
-
-  // useEffect(() => {
-  //   const storedInputs = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
-  //   if (storedInputs) setInputs(storedInputs);
-  // }, []);
-
-  // useEffect(() => {
-  //   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(inputs))
-  // }, [inputs]);
 
   const handleInputChange = (e) => {
     let target = e.target;
@@ -27,13 +36,27 @@ export default function Form1() {
     });
   };
 
-  const UserContext = createContext();
+  let newInput = {
+    name: inputs.nome,
+    email: inputs.email,
+    tel: inputs.tel,
+    date: Timestamp.fromDate(new Date())
+  };
+
 
   const handleSubmit = (e) => {
-    alert('Obrigado '+ inputs.nome + ', seu formulário foi enviado com sucesso!')
-    window.location.href='/form-react/'
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(inputs))
-    e.preventDefault()
+    e.preventDefault();
+    alert('Obrigado '+ inputs.nome + ', seu formulário foi enviado com sucesso!');
+
+    addDoc(colRef, {
+      name: inputs.nome,
+      email: inputs.email,
+      tel: inputs.tel,
+      date: Timestamp.fromDate(new Date())
+    })
+    .then( ()=> {
+      window.location.href='/form-react/'
+    })
   }
 
   const isErrorNome = inputs.nome === '';
@@ -97,7 +120,8 @@ export default function Form1() {
               value={inputs.tel} 
               onChange={handleInputChange} 
               placeholder="ex: (00) 9 0000-0000" 
-              isRequired 
+              isRequired
+              size="md"
               />
             {!isErrorTel ? (
                 <FormHelperText color="#A7C4BC">

@@ -37,22 +37,9 @@ export default function Home() {
           <Link to="/form-react/form1/"
           
           p=".25rem">
-            Form salvo em local storage
+            Form
           </Link>
         </Text>
-        {/* <Text
-          textDecor="none"
-          color="#A7C4BC"
-          p="1rem"
-          borderBottom="3px solid #DFEEEA"
-          _hover={{ fontSize: "2.rem" }}
-        >
-          <Link to="/form-react/form2/"
-          p=".25rem"
-          >
-          Form feito com state
-        </Link>
-        </Text> */}
         <Text
           textDecor="none"
           color="#A7C4BC"

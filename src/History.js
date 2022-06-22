@@ -4,8 +4,7 @@ import { Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableContainer, TableCaption } 
 import TableContent from './TableContent.js'
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js"
 import { 
-  getFirestore, collection, getDocs,
-  addDoc, Timestamp, setDoc, doc
+  getFirestore, collection, getDocs
 } from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-firestore.js';
 
 const firebaseConfig = {

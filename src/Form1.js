@@ -44,7 +44,7 @@ export default function Form1() {
       name: inputs.nome,
       email: inputs.email,
       tel: inputs.tel,
-      date: Timestamp.fromDate(new Date())
+      date: new Date().toDateString()
     })
     .then( ()=> {
       window.location.href='/form-react/'

@@ -36,14 +36,6 @@ export default function Form1() {
     });
   };
 
-  let newInput = {
-    name: inputs.nome,
-    email: inputs.email,
-    tel: inputs.tel,
-    date: Timestamp.fromDate(new Date())
-  };
-
-
   const handleSubmit = (e) => {
     e.preventDefault();
     alert('Obrigado '+ inputs.nome + ', seu formulário foi enviado com sucesso!');
@@ -58,6 +50,8 @@ export default function Form1() {
       window.location.href='/form-react/'
     })
   }
+
+  console.log(Object.values(inputs));
 
   const isErrorNome = inputs.nome === '';
   const isErrorEmail = inputs.email === '';

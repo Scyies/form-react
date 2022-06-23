@@ -5,17 +5,20 @@ import ptBR from 'date-fns/locale/pt-BR'
 
 const TableContent = ({ name, email, telefone, data }) => {
 
+  // const stringDate = toString(data);
   // const formattedDate = format(data, "EEEE' • 'd' de 'MMMM' • 'k'h'mm", {
   //   locale: ptBR,
   // });
+  // console.log(stringDate);
 
   return (
-    <Tr>
+    <Tr _hover={{ backgroundColor:"#2F5D62" }}>
       <Td 
       color="#A7C4BC" 
       fontSize="1rem" 
       textAlign="center" 
-      p=".25rem"> 
+      p=".25rem"
+      > 
       data
       </Td>
       <Td 

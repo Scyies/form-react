@@ -43,8 +43,6 @@ export default function History() {
     }
   }
 
-  console.log(inputList);
-
   useEffect(() => {
     getInfo();
   }, []);
@@ -67,11 +65,11 @@ export default function History() {
           <Table variant='simple'>
             <TableCaption>Histórico de formulários enviados</TableCaption>
               <Thead>
-                <Tr>
-                  <Th>Data</Th>
-                  <Th>Nome</Th>
-                  <Th>Email</Th>
-                  <Th>Telefone</Th>
+                <Tr >
+                  <Th textAlign="center">Data</Th>
+                  <Th textAlign="center">Nome</Th>
+                  <Th textAlign="center">Email</Th>
+                  <Th textAlign="center">Telefone</Th>
                 </Tr>
               </Thead>
               <Tbody>
